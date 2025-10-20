@@ -3,13 +3,8 @@ import { SearchInputComponent } from '../../components/search-input/search-input
 import { PortafolioTableComponent } from '../../components/portafolio-table/portafolio-table.component';
 
 @Component({
-  selector: 'app-chat-room-page',
+  selector: 'app-message-page',
   imports: [SearchInputComponent, PortafolioTableComponent],
-  templateUrl: './chat-room-page.component.html',
+  templateUrl: './message-page.component.html',
 })
-export class ChatRoomPageComponent {
-
-  onSearch(value: string) {
-    console.log({ value });
-  }
-}
+export class MessagePageComponent { }

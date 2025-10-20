@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-portafolio-table',
+  selector: 'portafolio-table',
   imports: [],
   templateUrl: './portafolio-table.component.html',
 })
