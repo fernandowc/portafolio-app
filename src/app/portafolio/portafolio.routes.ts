@@ -4,6 +4,7 @@ import { PortafolioLayoutComponent } from "./layouts/PortafolioLayout/Portafolio
 import { MessagePageComponent } from "./pages/message-page/message-page.component";
 import { UsersPageComponent } from "./pages/users-page/users-page.component";
 import { ByChatRoomIdPageComponent } from "./pages/by-chat-room-id-page/by-chat-room-id-page.component";
+import { ExamplePageComponent } from "./pages/example-page/example-page.component";
 
 export const portafolioRoutes: Routes = [
     {
@@ -28,6 +29,11 @@ export const portafolioRoutes: Routes = [
             {
                 path: 'by/:chatRoomId',
                 component: ByChatRoomIdPageComponent
+            },
+
+            {
+                path: 'example',
+                component: ExamplePageComponent
             },
 
             {
