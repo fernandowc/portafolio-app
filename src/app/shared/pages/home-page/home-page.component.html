@@ -1,138 +1,77 @@
-<!-- NAVBAR -->
-<div class="navbar bg-base-100/70 backdrop-blur supports-[backdrop-filter]:bg-base-100/60 sticky top-0 z-50 border-b border-base-300">
-  <div class="navbar-start">
-    <a class="btn btn-ghost text-xl font-extrabold" routerLink="/"># NuevoTinderPerros</a>
-  </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1 font-medium">
-      <li><a routerLink="/features">Características</a></li>
-      <li><a routerLink="/portafolio">Portafolio</a></li>
-      <li><a routerLink="/pricing">Precios</a></li>
-      <li><a routerLink="/contact">Contacto</a></li>
-    </ul>
-  </div>
-  <div class="navbar-end gap-2">
-    <a class="btn btn-ghost hidden sm:inline-flex" routerLink="/login">Ingresar</a>
-    <a class="btn btn-primary" routerLink="/portafolio">Empezar</a>
-    <div class="dropdown dropdown-end lg:hidden">
-      <div tabindex="0" role="button" class="btn btn-ghost">☰</div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a routerLink="/features">Características</a></li>
-        <li><a routerLink="/portafolio">Portafolio</a></li>
-        <li><a routerLink="/pricing">Precios</a></li>
-        <li><a routerLink="/contact">Contacto</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
+
 
 <!-- HERO -->
-<section
-  class="hero min-h-[78vh] relative"
-  style="background-image:url('https://images.pexels.com/photos/16129703/pexels-photo-16129703.jpeg');"
->
-  <!-- overlay base + gradiente para mejor legibilidad -->
-  <div class="hero-overlay bg-neutral/60"></div>
-  <div class="absolute inset-0 bg-gradient-to-t from-base-100/70 via-base-100/20 to-transparent"></div>
+<section class="relative min-h-[78vh]">
+  <img class="absolute inset-0 h-full w-full object-cover hero-img"
+       src="https://images.pexels.com/photos/16129703/pexels-photo-16129703.jpeg"
+       alt="Desarrollador trabajando con monitores y código" decoding="async" />
+  <div class="absolute inset-0 bg-neutral/60"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-base-100/80 via-base-100/20 to-transparent"></div>
 
-  <div class="hero-content text-neutral-content text-center">
-    <div class="max-w-2xl">
-      <h1 class="mb-4 text-4xl sm:text-5xl md:text-6xl font-extrabold drop-shadow">
-        Aplica<span class="text-primary">ción</span> Portafolio
-      </h1>
-      <p class="mb-6 opacity-90">
-        Muestra tu stack y proyectos con un landing rápido, accesible y listo para SEO.
-      </p>
-      <div class="flex items-center justify-center gap-3 flex-wrap">
-        <a routerLink="/portafolio" class="btn btn-primary">Empezar</a>
-        <a routerLink="/features" class="btn btn-outline">Ver características</a>
-      </div>
-      <div class="mt-6 flex justify-center gap-2 text-xs opacity-90">
-        <span class="badge badge-outline">Angular</span>
-        <span class="badge badge-outline">Tailwind</span>
-        <span class="badge badge-outline">DaisyUI</span>
+  <div class="relative hero min-h-[78vh]">
+    <div class="hero-content text-neutral-content text-center">
+      <div class="max-w-3xl px-4">
+        <h1 class="mb-4 text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight">
+          <span class="text-primary">Aprende</span> como trabajan los equipos<span class="text-primary"> tech</span> de banca, seguros y más.
+        </h1>
+        <p class="mb-6 opacity-90">Crea APIs seguras, despliega microservicios y postula con proyectos reales en tu portafolio.</p>
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+          <a routerLink="/portafolio" class="btn btn-primary">Empieza tu camino hoy!</a>
+          <a routerLink="/features" class="btn btn-outline">Ver cursos</a>
+        </div>
+        <div class="mt-6 flex justify-center gap-2 text-xs opacity-90">
+          <span class="badge badge-outline">Angular</span>
+          <span class="badge badge-outline">React</span>
+          <span class="badge badge-outline">Java • Spring</span>
+          <span class="badge badge-outline">Kafka • OAuth2</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FEATURES -->
+<!-- CARRUSEL logos -->
+<section class="container mx-auto px-4 py-10">
+  <p class="text-center text-sm md:text-base opacity-80">
+    Empresas en las que nuestros estudiantes <span class="font-semibold">podrán postular con ventaja</span>
+    gracias a su portafolio y stack alineado al mercado.
+  </p>
+
+  <div class="logos-marquee mt-6" aria-label="Logos de empresas del sector">
+    <div class="marquee-track" role="list">
+      <!-- Listado duplicado para lograr el bucle perfecto -->
+      <ng-container *ngFor="let _ of [0,1]">
+        <div class="flex gap-12 items-center pr-12">
+          <div *ngFor="let l of logos" class="logo-item" role="listitem" aria-label="{{l.alt}}">
+            <img [src]="l.src" [alt]="l.alt" loading="lazy">
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>
+
+<!-- RUTAS DESTACADAS (tipo EDteam) -->
 <section class="container mx-auto px-4 py-12">
-  <h2 class="text-2xl md:text-3xl font-bold mb-6">¿Qué incluye?</h2>
-  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-    <div class="card bg-base-200">
-      <div class="card-body">
-        <div class="text-2xl">⚡</div>
-        <h3 class="card-title">Rápido</h3>
-        <p>Core Web Vitals, imágenes optimizadas y lazy routes.</p>
-      </div>
-    </div>
-    <div class="card bg-base-200">
-      <div class="card-body">
-        <div class="text-2xl">🧩</div>
-        <h3 class="card-title">Modular</h3>
-        <p>Componentes reutilizables y estilos escalables.</p>
-      </div>
-    </div>
-    <div class="card bg-base-200">
-      <div class="card-body">
-        <div class="text-2xl">🔒</div>
-        <h3 class="card-title">Seguro</h3>
-        <p>Buenas prácticas de routing, guards y sanitización.</p>
-      </div>
-    </div>
-    <div class="card bg-base-200">
-      <div class="card-body">
-        <div class="text-2xl">🚀</div>
-        <h3 class="card-title">Deploy fácil</h3>
-        <p>Listo para Docker/Vercel/Cloud Run y CI/CD.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTAFOLIO PREVIEW -->
-<section class="container mx-auto px-4 pb-12">
-  <div class="flex items-end justify-between mb-4">
-    <h2 class="text-2xl md:text-3xl font-bold">Trabajos recientes</h2>
-    <a routerLink="/portafolio" class="link link-hover">Ver todo →</a>
+  <div class="text-center max-w-2xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-extrabold">Rutas destacadas</h2>
+    <p class="mt-2 opacity-80">Caminos de aprendizaje con proyectos, evaluaciones y buenas prácticas de producción.</p>
   </div>
 
-  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    <a class="card bg-base-200 image-full hover:translate-y-[-2px] transition"
-       href="#" aria-label="Proyecto 1">
-      <figure><img src="../../assets/work1.jpg" alt="Proyecto 1" loading="lazy"></figure>
-      <div class="card-body justify-end">
-        <h3 class="card-title">Match Engine</h3>
-        <p>Spring + Kafka</p>
+  <div class="grid gap-5 mt-8 sm:grid-cols-2 lg:grid-cols-4">
+    <article *ngFor="let t of tracks"
+             class="track-card p-5 bg-gradient-to-br"
+             [ngClass]="t.color">
+      <div class="flex items-center justify-between">
+        <span class="badge badge-outline">{{ t.tag }}</span>
+        <span class="badge badge-primary">{{ t.chip }}</span>
       </div>
-    </a>
-
-    <a class="card bg-base-200 image-full hover:translate-y-[-2px] transition"
-       href="#" aria-label="Proyecto 2">
-      <figure><img src="../../assets/work2.jpg" alt="Proyecto 2" loading="lazy"></figure>
-      <div class="card-body justify-end">
-        <h3 class="card-title">Web App</h3>
-        <p>Angular + Nx</p>
+      <div class="mt-4 text-4xl" aria-hidden="true">{{ t.emoji }}</div>
+      <h3 class="mt-3 text-lg font-bold leading-snug">{{ t.title }}</h3>
+      <p class="mt-2 text-sm opacity-90">{{ t.desc }}</p>
+      <div class="mt-4">
+        <a routerLink="/rutas" class="btn btn-sm btn-outline">Ver temario</a>
       </div>
-    </a>
-
-    <a class="card bg-base-200 image-full hover:translate-y-[-2px] transition"
-       href="#" aria-label="Proyecto 3">
-      <figure><img src="../../assets/work3.jpg" alt="Proyecto 3" loading="lazy"></figure>
-      <div class="card-body justify-end">
-        <h3 class="card-title">Mobile MVP</h3>
-        <p>Flutter</p>
-      </div>
-    </a>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="py-12 bg-base-200 border-y border-base-300">
-  <div class="container mx-auto px-4 text-center">
-    <h2 class="text-2xl md:text-3xl font-bold">¿Listo para despegar tu portafolio?</h2>
-    <p class="mt-2 opacity-80">Configura tu perfil, conecta proyectos y publica en minutos.</p>
-    <a routerLink="/portafolio" class="btn btn-primary mt-4">Crear mi perfil</a>
+    </article>
   </div>
 </section>

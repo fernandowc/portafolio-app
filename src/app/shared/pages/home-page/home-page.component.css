@@ -1,0 +1,89 @@
+/* ---------- HERO ---------- */
+.hero-img {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Si el usuario prefiere menos animación, no hacemos nada “fancy” */
+@media (prefers-reduced-motion: reduce) {
+  .hero-img {
+    transform: none;
+  }
+}
+
+/* ---------- CARRUSEL DE LOGOS (marquee infinito) ---------- */
+.logos-marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 3rem;                 /* separación entre logos */
+  width: max-content;        /* que tome el ancho real del contenido */
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* porque duplicas el listado para bucle perfecto */
+}
+
+.logo-item img {
+  height: 32px;
+  opacity: 0.7;
+  filter: grayscale(100%);
+  transition: opacity .2s ease, filter .2s ease, transform .2s ease;
+}
+
+.logo-item img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.02);
+}
+
+/* Respeto de preferencias del usuario: pausar animación si prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ---------- CARDS “RUTAS DESTACADAS” (estilo tipo EDteam) ---------- */
+.track-card {
+  border-radius: 1.25rem;             /* ~rounded-2xl */
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  /* El fondo (gradiente) lo manejas con clases Tailwind en el HTML:
+     p.ej. bg-gradient-to-br from-primary/20 to-primary/5 */
+}
+
+/* Accesibilidad al foco con teclado (si no usas ring de Tailwind) */
+.track-card:focus-within,
+.track-card:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* ---------- UTILIDADES SUAVES PARA HOVER EN CARDS DE PORTAFOLIO ---------- */
+.card.image-full:hover {
+  transform: translateY(-2px);
+  transition: transform .2s ease;
+}
+
+.card.image-full:focus-within {
+  outline: 2px solid var(--fallback-p, oklch(var(--p)));
+  outline-offset: 3px;
+}
+
+/* ---------- ESPACIADOS FINOS EN SECCIONES ---------- */
+.section-tight {
+  padding-top: 2.5rem;   /* ~py-10 */
+  padding-bottom: 2.5rem;
+}
+
+.section-comfy {
+  padding-top: 3.5rem;   /* ~py-14 */
+  padding-bottom: 3.5rem;
+}

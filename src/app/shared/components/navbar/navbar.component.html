@@ -1,0 +1,35 @@
+<!-- NAVBAR -->
+<div class="navbar bg-base-100/70 backdrop-blur supports-[backdrop-filter]:bg-base-100/60 sticky top-0 z-50 border-b border-base-300">
+  <div class="navbar-start">
+    <a class="btn btn-ghost text-xl font-extrabold" routerLink="/">
+        <img
+        src="assets/logos/logo.png"
+        alt="WriteCode logo"
+        class="h-20 w-auto"
+        />
+    </a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1 font-medium">
+      <li><a routerLink="/cursos">Cursos</a></li>
+      <li><a routerLink="/empresas">Empresas</a></li>
+      <li><a routerLink="/blog">Blog</a></li>
+      <li><a routerLink="/live">Live</a></li>
+      <li><a routerLink="/precios">Precios</a></li>
+    </ul>
+  </div>
+  <div class="navbar-end gap-2">
+    <a class="btn btn-ghost hidden sm:inline-flex" routerLink="/login">Iniciar Sesión</a>
+    <a class="btn btn-primary" routerLink="/portafolio">Empezar</a>
+    <div class="dropdown dropdown-end lg:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost">☰</div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a routerLink="/cursos">Cursos</a></li>
+        <li><a routerLink="/empresas">Empresas</a></li>
+        <li><a routerLink="/blog">Blog</a></li>
+        <li><a routerLink="/live">Live</a></li>
+        <li><a routerLink="/precios">Precios</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
