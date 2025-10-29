@@ -51,6 +51,48 @@
   </div>
 </section>
 
+<section class="container mx-auto px-4 py-16">
+  <h2 class="text-2xl md:text-3xl font-extrabold text-center mb-2">Escuelas destacadas</h2>
+  <p class="text-center opacity-80 max-w-xl mx-auto mb-10">
+    Creamos rutas de aprendizaje especialmente para guiarte en herramientas y conocimientos demandados por el mercado laboral.
+  </p>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <!-- CARD 1 -->
+    <div class="relative rounded-xl bg-gradient-to-br from-blue-900 to-blue-600 p-6 text-white shadow-xl text-center overflow-hidden">
+      <img src="assets/img/image1.webp" alt="Profesor 1" class="mx-auto mb-4 w-32 h-32 object-cover rounded-full border-4 border-blue-300">
+      <span class="badge badge-primary mb-2">Escuela de</span>
+      <h3 class="text-xl font-bold">Programación Web</h3>
+      <p class="mt-2 text-sm opacity-90">Aprende desarrollo web desde cero con tecnologías modernas.</p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="relative rounded-xl bg-gradient-to-br from-green-900 to-green-600 p-6 text-white shadow-xl text-center overflow-hidden">
+      <img src="assets/img/image2.webp" alt="Profesora 2" class="mx-auto mb-4 w-32 h-32 object-cover rounded-full border-4 border-green-300">
+      <span class="badge badge-primary mb-2">Escuela de</span>
+      <h3 class="text-xl font-bold">Desarrollo Frontend</h3>
+      <p class="mt-2 text-sm opacity-90">Domina interfaces atractivas y funcionales con HTML, CSS y JS.</p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="relative rounded-xl bg-gradient-to-br from-rose-900 to-rose-600 p-6 text-white shadow-xl text-center overflow-hidden">
+      <img src="assets/img/image3.webp" alt="Profesor 3" class="mx-auto mb-4 w-32 h-32 object-cover rounded-full border-4 border-rose-300">
+      <span class="badge badge-primary mb-2">Escuela de</span>
+      <h3 class="text-xl font-bold">Desarrollo Backend</h3>
+      <p class="mt-2 text-sm opacity-90">Aprende Spring, bases de datos y APIs profesionales.</p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="relative rounded-xl bg-gradient-to-br from-yellow-900 to-yellow-600 p-6 text-white shadow-xl text-center overflow-hidden">
+      <img src="assets/img/image4.webp" alt="Profesora 4" class="mx-auto mb-4 w-32 h-32 object-cover rounded-full border-4 border-yellow-300">
+      <span class="badge badge-primary mb-2">Escuela de</span>
+      <h3 class="text-xl font-bold">Inteligencia Artificial</h3>
+      <p class="mt-2 text-sm opacity-90">Transforma datos en soluciones reales con IA y ML.</p>
+    </div>
+  </div>
+</section>
+
+
 <!-- RUTAS DESTACADAS (tipo EDteam) -->
 <section class="container mx-auto px-4 py-12">
   <div class="text-center max-w-2xl mx-auto">
@@ -59,9 +101,10 @@
   </div>
 
   <div class="grid gap-5 mt-8 sm:grid-cols-2 lg:grid-cols-4">
-    <article *ngFor="let t of tracks"
-             class="track-card p-5 bg-gradient-to-br"
-             [ngClass]="t.color">
+    <article
+      *ngFor="let t of tracks"
+      class="track-card p-5 bg-gradient-to-br rounded-xl border border-base-300 transition duration-300 hover:scale-[1.03] hover:shadow-lg"
+      [ngClass]="t.color">
       <div class="flex items-center justify-between">
         <span class="badge badge-outline">{{ t.tag }}</span>
         <span class="badge badge-primary">{{ t.chip }}</span>
