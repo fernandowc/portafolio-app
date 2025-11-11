@@ -12,7 +12,7 @@ export const portafolioRoutes: Routes = [
         component: PortafolioLayoutComponent,
         children: [
             {
-                path: 'chat',
+                path: 'chatroom',
                 component: ChatRoomPageComponent
             },
 
