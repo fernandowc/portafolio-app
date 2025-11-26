@@ -5,7 +5,11 @@
             "skipStyle": true
         },
         "angular-component": {
-            "skipChangeDetectionOnPush": true
+            "prefix": "app",
+            "style": "scss",
+            "skipTests": true,
+            "skipChangeDetectionOnPush": false,
+            "type": "component"
         },
         "angular-page": {
             "skipChangeDetectionOnPush": true

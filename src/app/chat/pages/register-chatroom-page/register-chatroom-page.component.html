@@ -1,0 +1,52 @@
+<div class="card-body">
+
+        <h2 class="card-title text-xl mb-4">Crear Chat Room</h2>
+
+        <form [formGroup]="chatRoomForm" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <!-- Nombre -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Nombre del ChatRoom</span>
+                </label>
+                <input type="text" formControlName="name" class="input input-bordered w-full"
+                    placeholder="Ej: Sala general" />
+            </div>
+
+            <!-- Descripción -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Descripción</span>
+                </label>
+                <input type="text" formControlName="description" class="input input-bordered w-full"
+                    placeholder="De qué trata la sala" />
+            </div>
+
+            <!-- Tipo -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Tipo</span>
+                </label>
+                <select formControlName="type" class="select select-bordered w-full">
+                    <option value="PUBLIC">Público</option>
+                    <option value="PRIVATE">Privado</option>
+                </select>
+            </div>
+
+            <!-- Creador -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Creador</span>
+                </label>
+                <input type="text" formControlName="createdBy" class="input input-bordered w-full"
+                    placeholder="ID del usuario" />
+            </div>
+
+            <!-- Botón Actions-->
+            <div class="card-actions md:col-span-2 mt-4 flex justify-end">
+                <button type="submit" class="btn btn-primary">Crear ChatRoom</button>
+            </div>
+
+        </form>
+
+    </div>

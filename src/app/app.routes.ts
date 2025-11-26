@@ -11,6 +11,11 @@ export const routes: Routes = [
         path: 'portafolio',
         loadChildren: () => import('./portafolio/portafolio.routes'),
     },
+    
+    {
+        path: 'chat',
+        loadChildren: () => import('./chat/chat.routes.routes'),
+    },
 
     {
         path: '**',

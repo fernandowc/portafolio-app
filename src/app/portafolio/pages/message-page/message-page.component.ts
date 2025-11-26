@@ -4,7 +4,7 @@ import { PortafolioTableComponent } from '../../components/portafolio-table/port
 
 @Component({
   selector: 'app-message-page',
-  imports: [SearchInputComponent, PortafolioTableComponent],
+  imports: [SearchInputComponent],
   templateUrl: './message-page.component.html',
 })
 export class MessagePageComponent { }

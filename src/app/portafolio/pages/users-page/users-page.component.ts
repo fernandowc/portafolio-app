@@ -4,7 +4,7 @@ import { PortafolioTableComponent } from '../../components/portafolio-table/port
 
 @Component({
   selector: 'app-users-page',
-  imports: [SearchInputComponent, PortafolioTableComponent],
+  imports: [SearchInputComponent],
   templateUrl: './users-page.component.html',
 })
 export class UsersPageComponent { }
