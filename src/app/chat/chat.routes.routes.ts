@@ -9,12 +9,12 @@ export const ChatRoutes: Routes = [
         component: ChatLayoutComponent,
         children: [
             {
-                path: 'chatroom/algo',
+                path: 'chatroom',
                 component: ChatRoomPageComponent
             },
 
             {
-                path: 'chatroom/register',
+                path: 'register',
                 component: RegisterChatroomPageComponent
             },
                     

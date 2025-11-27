@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RegisterChatroomPageComponent } from "../../pages/register-chatroom-page/register-chatroom-page.component";
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'tab-navigation',
-  imports: [RouterOutlet, RegisterChatroomPageComponent],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './tab-navigation.component.html',
   styles: ``
 })
