@@ -1,2 +1,7 @@
 <chat-search-input placeholder="Buscar chat-room"/>
-<chat-table />
+<chat-table 
+    [chatrooms]="chatroomResource.value() ?? []"
+    [errorMessage]="chatroomResource.error()"
+    [isEmpty]="chatroomResource.value()?.length === 0"
+    [isLoading]="chatroomResource.isLoading()"
+/>

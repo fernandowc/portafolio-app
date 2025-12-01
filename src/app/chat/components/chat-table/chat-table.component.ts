@@ -1,22 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ChatRoomService, ChatRoom } from '../../service/chat-room.service';
+import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { ChatRoom } from '../../interfaces/ChatRoom';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'chat-table',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './chat-table.component.html',
   styles: ``
 })
-export class ChatTableComponent implements OnInit {
-  chatRooms: ChatRoom[] = [];
+export class ChatTableComponent {
 
-  constructor(private chatRoomService: ChatRoomService) {}
+  chatrooms = input.required<ChatRoom[]>();
 
-  ngOnInit() {
-    this.chatRoomService.getChatRooms().subscribe({
-      next: (rooms) => this.chatRooms = rooms,
-      error: (err) => console.error('Error cargando chat rooms', err)
-    });
-  }
+  errorMessage = input<string | unknown | null>();
+  isLoading = input<boolean>(false);
+  isEmpty = input<boolean>(false);
 }

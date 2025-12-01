@@ -13,13 +13,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let room of chatRooms">
-                <td>{{ room.id }}</td>
-                <td>{{ room.name }}</td>
-                <td>{{ room.description }}</td>
+            @for (chatroom of chatrooms(); track chatroom.id; let index = $index) {
+            <tr>
+                <td>{{ index + 1 }}</td>
+                <td>{{ chatroom.name }}</td>
+                <td>{{ chatroom.description }}</td>
                 <td>
                     <div class="tooltip cursor-help before:text-[0.6875rem]" data-tip="Visual style of component or part"><span
-                            class="badge badge-soft {{ room.isPrivate ? 'badge-error' : 'badge-success' }} badge-sm whitespace-nowrap"><svg xmlns="http://www.w3.org/2000/svg"
+                            class="badge badge-soft {{ chatroom.isPrivate ? 'badge-error' : 'badge-success' }} badge-sm whitespace-nowrap"><svg xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 18 18" class="size-3">
                                 <g fill="currentColor">
                                     <circle cx="13.5" cy="6" r="3.25" fill="none" stroke="currentColor" stroke-linecap="round"
@@ -31,12 +32,35 @@
                                         fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
                                     </path>
                                 </g>
-                            </svg> {{ room.isPrivate ? 'Privado' : 'Público' }}</span></div>
+                            </svg> {{ chatroom.isPrivate ? 'Privado' : 'Público' }}</span></div>
                 </td>
-                <td>{{ room.user1Id }}</td>
-                <td>{{ room.user2Id }}</td>
-                <td>{{ room.createdAt }}</td>
+                <td>{{ chatroom.user1Id }}</td>
+                <td>{{ chatroom.user2Id }}</td>
+                <td>{{ chatroom.createdAt }}</td>
             </tr>
+
+            } @if (errorMessage()) {
+            <tr>
+                <td colspan="8" class="text-center">
+                    {{ errorMessage() }}
+                </td>
+            </tr>
+            }
+
+            <!--  -->
+            @if(chatrooms().length === 0 && !isLoading()) {
+            <tr>
+                <td colspan="8" class="text-center">No se encontraron resultados</td>
+            </tr>
+            }
+
+            <!--  -->
+            @if (isLoading()) {
+            <tr>
+                <td colspan="8" class="text-center">Buscando países</td>
+            </tr>
+
+            }
         </tbody>
     </table>
 
