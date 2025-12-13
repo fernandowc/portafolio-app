@@ -15,4 +15,16 @@ export class ChatTableComponent {
   errorMessage = input<string | unknown | null>();
   isLoading = input<boolean>(false);
   isEmpty = input<boolean>(false);
+
+  previewChat(chatroom: ChatRoom) {
+  console.log('Vista previa:', chatroom);
+}
+
+  editChat(chatroom: ChatRoom) {
+    console.log('Editar:', chatroom);
+  }
+
+  deleteChat(id: number) {
+    console.log('Eliminar:', id);
+  }
 }

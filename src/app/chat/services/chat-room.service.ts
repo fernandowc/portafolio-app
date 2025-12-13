@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { ChatRoom } from '../interfaces/ChatRoom';
 import { ChatRoomMapper } from '../mapper/chatroom-mapper';
+import { ChatRoomCreateRequest } from '../interfaces/ChatRoomCreateRequest';
 
 const API_URL = 'http://localhost:8080/api';
 
@@ -20,6 +21,17 @@ export class ChatRoomService {
         return throwError(
           () => new Error(`No se pudo obtener chatRooms`)
         );
+      })
+    );
+  }
+
+  saveChatRoom(chatRoom: ChatRoomCreateRequest): Observable<ChatRoom> {
+    return this.http.post<ChatRoom>(`${API_URL}/messages/chat-room`, chatRoom).pipe(
+      map((resp) => ChatRoomMapper.mapRestChatRoomToChatRoom(resp)),
+      catchError((error) => {
+        console.error('Error creando el chatRoom', error);
+
+        return throwError(() => new Error('No se pudo crear el chatRoom'));
       })
     );
   }

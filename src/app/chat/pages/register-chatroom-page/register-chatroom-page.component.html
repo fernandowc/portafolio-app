@@ -1,52 +1,77 @@
 <div class="card-body">
 
-        <h2 class="card-title text-xl mb-4">Crear Chat Room</h2>
+    <h2 class="card-title text-xl mb-4">Crear Chat Room</h2>
 
-        <form [formGroup]="chatRoomForm" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-            <!-- Nombre -->
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text">Nombre del ChatRoom</span>
-                </label>
-                <input type="text" formControlName="name" class="input input-bordered w-full"
-                    placeholder="Ej: Sala general" />
-            </div>
-
-            <!-- Descripción -->
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text">Descripción</span>
-                </label>
-                <input type="text" formControlName="description" class="input input-bordered w-full"
-                    placeholder="De qué trata la sala" />
-            </div>
-
-            <!-- Tipo -->
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text">Tipo</span>
-                </label>
-                <select formControlName="type" class="select select-bordered w-full">
-                    <option value="PUBLIC">Público</option>
-                    <option value="PRIVATE">Privado</option>
-                </select>
-            </div>
-
-            <!-- Creador -->
-            <div class="form-control">
-                <label class="label">
-                    <span class="label-text">Creador</span>
-                </label>
-                <input type="text" formControlName="createdBy" class="input input-bordered w-full"
-                    placeholder="ID del usuario" />
-            </div>
-
-            <!-- Botón Actions-->
-            <div class="card-actions md:col-span-2 mt-4 flex justify-end">
-                <button type="submit" class="btn btn-primary">Crear ChatRoom</button>
-            </div>
-
-        </form>
-
+    <div *ngIf="successAlert()" role="alert" class="alert alert-success mb-4 animate-fade-in">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span>¡El ChatRoom ha sido creado correctamente!</span>
     </div>
+
+    <!-- ALERTA DE ERROR -->
+    <div *ngIf="errorAlert()" role="alert" class="alert alert-error mb-4 animate-fade-in">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m-2 2a9 9 0 110-18 9 9 0 010 18z" />
+        </svg>
+        <span>{{ errorAlert() }}</span>
+    </div>
+
+    <form [formGroup]="chatRoomForm" (ngSubmit)="onSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <!-- Nombre -->
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Nombre del ChatRoom</span>
+            </label>
+            <input type="text" formControlName="name" class="input input-bordered w-full"
+                placeholder="Ej: Sala general" />
+        </div>
+
+        <!-- Descripción -->
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Descripción</span>
+            </label>
+            <input type="text" formControlName="description" class="input input-bordered w-full"
+                placeholder="De qué trata la sala" />
+        </div>
+
+        <!-- Tipo -->
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Tipo</span>
+            </label>
+            <select formControlName="type" class="select select-bordered w-full">
+                <option value="PUBLIC">Público</option>
+                <option value="PRIVATE">Privado</option>
+            </select>
+        </div>
+
+        <!-- Usuario 1 -->
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Usuario 1</span>
+            </label>
+            <input type="text" formControlName="user1" class="input input-bordered w-full"
+                placeholder="ID del usuario" />
+        </div>
+
+        <div class="form-control">
+            <label class="label">
+                <span class="label-text">Usuario 2</span>
+            </label>
+            <input type="text" formControlName="user2" class="input input-bordered w-full"
+                placeholder="ID del usuario" />
+        </div>
+
+        <!-- Botón Actions-->
+        <div class="card-actions md:col-span-2 mt-4 flex justify-end">
+            <button type="submit" class="btn btn-primary">Crear ChatRoom</button>
+        </div>
+
+    </form>
+
+</div>

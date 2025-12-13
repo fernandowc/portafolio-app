@@ -10,6 +10,7 @@
                 <th>Usuario 1 (ID)</th>
                 <th>Usuario 2 (ID)</th>
                 <th>Fecha de Creación</th>
+                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,17 @@
                 <td>{{ chatroom.user1Id }}</td>
                 <td>{{ chatroom.user2Id }}</td>
                 <td>{{ chatroom.createdAt }}</td>
+                <td class="flex gap-1">
+                    <button class="btn btn-ghost btn-xs" (click)="previewChat(chatroom)">
+                        👁
+                    </button>
+                    <button class="btn btn-warning btn-xs" (click)="editChat(chatroom)">
+                        ✏️
+                    </button>
+                    <button class="btn btn-error btn-xs" (click)="deleteChat(chatroom.id)">
+                        🗑
+                    </button>
+                </td>
             </tr>
 
             } @if (errorMessage()) {
